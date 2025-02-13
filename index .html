@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Heart</title>
+    <style>
+        /* 页面背景和布局 */
+        body {
+            background: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            color: white;
+        }
+
+        /* 爱心样式 */
+        .heart {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: relative;
+            transform: rotate(-45deg);
+            animation: beat 1s infinite;
+        }
+        .heart::before,
+        .heart::after {
+            content: '';
+            width: 100px;
+            height: 100px;
+            background: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .heart::before {
+            top: -50px;
+            left: 0;
+        }
+        .heart::after {
+            top: 0;
+            left: 50px;
+        }
+
+        /* 爱心动画 */
+        @keyframes beat {
+            0%, 100% { transform: scale(1) rotate(-45deg); }
+            50% { transform: scale(1.1) rotate(-45deg); }
+        }
+
+        /* 名字样式 */
+        .names {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .names h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s linear infinite;
+        }
+        @keyframes glow {
+            0% { background-position: 0 0; }
+            50% { background-position: 400% 0; }
+            100% { background-position: 0 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 爱心动画 -->
+    <div class="heart"></div>
+
+    <!-- 名字 -->
+    <div class="names">
+        <h1>付庆宇</h1>
+        <h1>付静敏</h1>
+    </div>
+</body>
+</html>
